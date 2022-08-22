@@ -6,7 +6,7 @@
 
 // clargparser: command line arugment parser
 struct argtableentry {
-  char flag;
+  char *flag;
   char hasarg;
   void *value;
   void (*parseFunc)(void *value, char *arg);
@@ -14,7 +14,7 @@ struct argtableentry {
 typedef struct argtableentry argte;
 
 void proc_args(int argc, char *argv[], argte argtable[], size_t argrows);
-argte *search_arg_table(argte argtable[], size_t argrows, char flag);
+argte *search_arg_table(argte argtable[], size_t argrows, char *flag);
 
 void proc_int_arg(void *value, char *arg);
 void proc_str_arg(void *value, char *arg);
